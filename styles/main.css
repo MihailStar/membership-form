@@ -1,0 +1,277 @@
+@font-face {
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+  font-family: 'Helvetica Neue Light';
+  src: local('Helvetica Neue Light'), local('Helvetica-Neue-Light'),
+    url(../fonts/helvetica-neue-light.woff2) format('woff2'),
+    url(../fonts/helvetica-neue-light.woff) format('woff');
+}
+@font-face {
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+  font-family: 'Helvetica Neue Bold';
+  src: local('Helvetica Neue Bold'), local('Helvetica-Neue-Bold'),
+    url(../fonts/helvetica-neue-bold.woff2) format('woff2'),
+    url(../fonts/helvetica-neue-bold.woff) format('woff');
+}
+.membership-form {
+  box-sizing: border-box;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 8px;
+  padding-left: 8px;
+  min-width: 320px;
+  max-width: 1150px;
+  color: #161616;
+  font-size: 15px;
+  font-family: 'Helvetica Neue Light', sans-serif;
+  line-height: 24px;
+}
+.membership-form *,
+.membership-form ::after,
+.membership-form ::before {
+  box-sizing: inherit;
+  color: inherit;
+  font: inherit;
+}
+.membership-form__row {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -8px;
+  margin-left: -8px;
+}
+.membership-form__column {
+  position: relative;
+  -webkit-box-flex: 0;
+  flex: 0 0 100%;
+  padding-right: 8px;
+  padding-left: 8px;
+  max-width: 100%;
+}
+.membership-form__column_row-no-wrap {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.membership-form__column_row-wrap {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+.membership-form__fieldset {
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0;
+  border: 0;
+}
+.membership-form__legend {
+  margin-bottom: 8px;
+  padding-right: 0;
+  padding-left: 0;
+  color: #1d1f1e;
+  font-size: 16px;
+  font-family: 'Helvetica Neue Bold', sans-serif;
+  line-height: 24px;
+}
+.membership-form__legend_headline {
+  margin-bottom: 12px;
+  font-size: 20px;
+  line-height: 28px;
+}
+.membership-form__input-text {
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  margin-bottom: 16px;
+  padding: 4px 8px;
+  width: 100%;
+  height: 32px;
+  border: 0;
+  background-color: #f1f3f2;
+}
+.membership-form__input-text::-webkit-input-placeholder {
+  color: #aaa9a9;
+}
+.membership-form__input-text:-ms-input-placeholder,
+.membership-form__input-text::-ms-input-placeholder {
+  color: #aaa9a9;
+}
+.membership-form__input-text::placeholder {
+  color: #aaa9a9;
+}
+.membership-form__input-text:focus {
+  outline-color: transparent;
+}
+.membership-form__input-text:focus-visible {
+  outline-color: initial;
+}
+.membership-form__input-text[disabled] {
+  background-color: #ccc;
+  color: transparent;
+  cursor: not-allowed;
+}
+.membership-form__label-for-input-text_with-margin-right {
+  margin-right: 8px;
+}
+.membership-form__label-for-input-text_with-padding-top {
+  padding-top: 4px;
+}
+.membership-form__input-checkbox {
+  flex-shrink: 0;
+  margin-top: 0;
+  margin-bottom: 16px;
+  margin-left: 0;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background-color: #f1f3f2;
+  cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.membership-form__input-checkbox:checked {
+  background-image: url('data:image/svg+xml,%3Csvg aria-hidden="true" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"%0A%3E%3Cpath fill="%23263d6d" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z" %3E%3C/path%3E%3C/svg%3E%0A');
+  background-position: 50% 50%;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+}
+.membership-form__input-checkbox:focus {
+  outline-color: transparent;
+}
+.membership-form__input-checkbox:focus-visible {
+  outline-color: initial;
+}
+.membership-form__input-checkbox[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.membership-form__input-checkbox[disabled]:checked {
+  background-image: none;
+}
+.membership-form__input-checkbox_with-margin-right {
+  margin-right: 8px;
+}
+.membership-form__input-checkbox_top-right {
+  margin-bottom: 8px;
+  width: 24px;
+  height: 24px;
+}
+.membership-form__input-checkbox_top-right:checked {
+  background-size: 16px 16px;
+}
+.membership-form__label-for-input-checkbox {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.membership-form__label-for-input-checkbox_with-margin-right {
+  margin-right: 8px;
+}
+.membership-form__label-for-input-checkbox_top-right {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 14px;
+}
+.membership-form__textarea {
+  margin-bottom: 16px;
+  padding: 4px 8px;
+  min-height: 128px;
+  width: 100%;
+  border: 0;
+  background-color: #f1f3f2;
+  resize: vertical;
+}
+.membership-form__textarea::-webkit-input-placeholder {
+  color: #aaa9a9;
+}
+.membership-form__textarea:-ms-input-placeholder,
+.membership-form__textarea::-ms-input-placeholder {
+  color: #aaa9a9;
+}
+.membership-form__textarea::placeholder {
+  color: #aaa9a9;
+}
+.membership-form__textarea:focus {
+  outline-color: transparent;
+}
+.membership-form__textarea:focus-visible {
+  outline-color: initial;
+}
+.membership-form__textarea[disabled] {
+  background-color: #ccc;
+  color: transparent;
+  cursor: not-allowed;
+}
+.membership-form__p {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.membership-form__p_note {
+  font-size: 14px;
+}
+.membership-form__a:focus {
+  outline-color: transparent;
+}
+.membership-form__a:focus-visible {
+  outline-color: initial;
+}
+.membership-form__hr {
+  margin-bottom: 16px;
+  height: 1px;
+  border: 0;
+  background-color: #d7d7d7;
+}
+.membership-form__wrapper {
+  display: -webkit-box;
+  display: flex;
+}
+.membership-form__wrapper:not(:last-child) {
+  margin-right: 16px;
+}
+@media (min-width: 768px) {
+  .membership-form__column_4 {
+    -webkit-box-flex: 0;
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }
+  .membership-form__column_5 {
+    -webkit-box-flex: 0;
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%;
+  }
+  .membership-form__column_6 {
+    -webkit-box-flex: 0;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .membership-form__column_7 {
+    -webkit-box-flex: 0;
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+  }
+  .membership-form__column_12 {
+    -webkit-box-flex: 0;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .membership-form__legend_headline {
+    margin-bottom: 16px;
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .membership-form__input-text {
+    width: auto;
+  }
+  .membership-form__label-for-input-text {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  .membership-form__wrapper_top-right {
+    position: absolute;
+    top: 0;
+    right: 8px;
+  }
+}
