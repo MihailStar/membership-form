@@ -1,0 +1,10 @@
+mixin fieldset-legend({ title, modifiers = [] })
+
+  -
+    const b = 'membership-form';
+    const fieldsetClasses = [`${b}__fieldset`].concat(modifiers.map((m) => `${b}__fieldset_${m}`));
+    const legendClasses = [`${b}__legend`].concat(modifiers.map((m) => `${b}__legend_${m}`));
+
+  fieldset(class=fieldsetClasses)&attributes(attributes)
+    legend(class=legendClasses)= title
+    block

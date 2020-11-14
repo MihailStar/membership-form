@@ -1,0 +1,8 @@
+mixin input-checkbox({ id, modifiers = [] })
+
+  -
+    const b = 'membership-form';
+    const e = 'input-checkbox';
+    const classes = [`${b}__${e}`].concat(modifiers.map((m) => `${b}__${e}_${m}`));
+
+  input(class=classes id=id type='checkbox')&attributes(attributes)

@@ -1,0 +1,127 @@
+mixin company-details()
+
+  -
+    const ids = Array.from({ length: 2 }, getRandomId);
+    const switchIds = Array.from({ length: 2 }, getRandomId);
+    const sameWidthIds = Array.from({ length: 5 }, getRandomId);
+
+    const rows1 = [
+      [
+        { title: 'Registered company name', sameWidth: sameWidthIds[0], modifiers: ['6', 'row-wrap'] },
+        { title: 'Trading name (if different)', sameWidth: sameWidthIds[1], modifiers: ['6', 'row-wrap'] },
+      ],
+      [
+        { title: 'Website', sameWidth: sameWidthIds[0], modifiers: ['6', 'row-wrap'] },
+        { title: 'ABN', sameWidth: sameWidthIds[1], modifiers: ['6', 'row-wrap'] },
+      ],
+    ];
+    const rows2 = [
+      [
+        { title: 'Address', sameWidth: sameWidthIds[2], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Suburb', sameWidth: sameWidthIds[2], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'State', sameWidth: sameWidthIds[2], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Postcode', sameWidth: sameWidthIds[2], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Country', sameWidth: sameWidthIds[2], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Office Phone', sameWidth: sameWidthIds[2], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Office Email', sameWidth: sameWidthIds[2], modifiers: ['12', 'row-wrap'] },
+      ],
+    ];
+    const rows3 = [
+      [
+        { title: 'Address', sameWidth: sameWidthIds[3], switchable: switchIds[0], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Suburb', sameWidth: sameWidthIds[3], switchable: switchIds[0], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'State', sameWidth: sameWidthIds[3], switchable: switchIds[0], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Postcode', sameWidth: sameWidthIds[3], switchable: switchIds[0], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Country', sameWidth: sameWidthIds[3], switchable: switchIds[0], modifiers: ['12', 'row-wrap'] },
+      ],
+    ];
+    const rows4 = [
+      [
+        { title: 'First name', sameWidth: sameWidthIds[4], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Surname', sameWidth: sameWidthIds[4], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Position', sameWidth: sameWidthIds[4], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Phone', sameWidth: sameWidthIds[4], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Mobile', sameWidth: sameWidthIds[4], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Direct Email', sameWidth: sameWidthIds[4], modifiers: ['12', 'row-wrap'] },
+      ],
+    ];
+    const rows5 = [
+      [
+        { title: 'First name', sameWidth: sameWidthIds[4], switchable: switchIds[1], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Surname', sameWidth: sameWidthIds[4], switchable: switchIds[1], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Position', sameWidth: sameWidthIds[4], switchable: switchIds[1], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Phone', sameWidth: sameWidthIds[4], switchable: switchIds[1], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Mobile', sameWidth: sameWidthIds[4], switchable: switchIds[1], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Direct Email', sameWidth: sameWidthIds[4], switchable: switchIds[1], modifiers: ['12', 'row-wrap'] },
+      ],
+    ];
+
+  +fieldset-legend({ title: 'Company Details', modifiers: ['headline'] })
+    each columns in rows1
+      +row-label-input-text({ columns })
+    .membership-form__row
+      .membership-form__column.membership-form__column_6
+        +fieldset-legend({ title: 'Business Address' })
+        each columns in rows2
+          +row-label-input-text({ columns })
+      .membership-form__column.membership-form__column_6
+        +fieldset-legend({ title: 'Postal Address' })
+          .membership-form__wrapper.membership-form__wrapper_top-right
+            +input-checkbox({ id: ids[0], modifiers: ['with-margin-right', 'top-right'] })(data-switch=switchIds[0])
+            +label-for-input-checkbox({ title: 'Same as business address', id: ids[0], modifiers: ['top-right'] })
+        each columns in rows3
+          +row-label-input-text({ columns })
+    .membership-form__row
+      .membership-form__column.membership-form__column_6
+        +fieldset-legend({ title: 'Primary contact' })
+        each columns in rows4
+          +row-label-input-text({ columns })
+      .membership-form__column.membership-form__column_6
+        +fieldset-legend({ title: 'Accounts contact' })
+          .membership-form__wrapper.membership-form__wrapper_top-right
+            +input-checkbox({ id: ids[1], modifiers: ['with-margin-right', 'top-right'] })(data-switch=switchIds[1])
+            +label-for-input-checkbox({ title: 'Same as primary contact', id: ids[1], modifiers: ['top-right'] })
+        each columns in rows5
+          +row-label-input-text({ columns })
+    p.membership-form__p.membership-form__p_note.
+      *For additional branches please see overleaf

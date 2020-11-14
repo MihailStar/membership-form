@@ -1,0 +1,14 @@
+extends ./templates/base.pug
+
+block variables
+  -
+    const documentLanguage = 'en';
+    const bodyClasses = '';
+    const pageDescription = '';
+    const pageKeywords = '';
+    const pageTitle = 'Membership Form';
+
+block head
+
+block body
+  include ./blocks/membership-form/templates/index.pug

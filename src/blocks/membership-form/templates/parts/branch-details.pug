@@ -1,0 +1,89 @@
+mixin branch-details()
+
+  -
+    const items = Array.from({ length: 3 }, (_, i) => i + 1);
+    const ids = Array.from({ length: items.length }, getRandomId);
+    const switchIds = Array.from({ length: items.length }, getRandomId);
+    const sameWidthIds = Array.from({ length: 4 }, getRandomId);
+
+    const rows1 = [
+      [
+        { title: 'Branch name', sameWidth: sameWidthIds[0], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Branch email', sameWidth: sameWidthIds[0], modifiers: ['7', 'row-wrap'] },
+        { title: 'Branch phone', modifiers: ['5', 'row-wrap'] },
+      ],
+    ];
+    const rows2 = [
+      [
+        { title: 'Address', sameWidth: sameWidthIds[1], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Suburb', sameWidth: sameWidthIds[1], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'State', sameWidth: sameWidthIds[1], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Postcode', sameWidth: sameWidthIds[1], modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Country', sameWidth: sameWidthIds[1], modifiers: ['12', 'row-wrap'] },
+      ],
+    ];
+    const rows3 = [
+      [
+        { title: 'Address', sameWidth: sameWidthIds[1], switchable: '', modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Suburb', sameWidth: sameWidthIds[1], switchable: '', modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'State', sameWidth: sameWidthIds[1], switchable: '', modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Postcode', sameWidth: sameWidthIds[1], switchable: '', modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Country', sameWidth: sameWidthIds[1], switchable: '', modifiers: ['12', 'row-wrap'] },
+      ],
+    ];
+    const rows4 = [
+      [
+        { title: 'First name', sameWidth: sameWidthIds[2], modifiers: ['6', 'row-wrap'] },
+        { title: 'Surname', sameWidth: sameWidthIds[3], modifiers: ['6', 'row-wrap'] },
+      ],
+      [
+        { title: 'Position', sameWidth: sameWidthIds[2], modifiers: ['6', 'row-wrap'] },
+        { title: 'Phone', sameWidth: sameWidthIds[3], modifiers: ['6', 'row-wrap'] },
+      ],
+      [
+        { title: 'Mobile', sameWidth: sameWidthIds[2], modifiers: ['6', 'row-wrap'] },
+        { title: 'Email', sameWidth: sameWidthIds[3], modifiers: ['6', 'row-wrap'] },
+      ],
+    ];
+
+  each item in items
+    +fieldset-legend({ title: 'Branch details', modifiers: ['headline'] })
+      each columns in rows1
+        +row-label-input-text({ columns })
+      .membership-form__row
+        .membership-form__column.membership-form__column_6
+          +fieldset-legend({ title: 'Business Address' })
+          each columns in rows2
+            +row-label-input-text({ columns })
+        .membership-form__column.membership-form__column_6
+          +fieldset-legend({ title: 'Postal Address' })
+            .membership-form__wrapper.membership-form__wrapper_top-right
+              +input-checkbox({ id: ids[item - 1], modifiers: ['with-margin-right', 'top-right'] })(data-switch=switchIds[item - 1])
+              +label-for-input-checkbox({ title: 'Same as business address', id: ids[item - 1], modifiers: ['top-right'] })
+          each columns in rows3
+
+            -
+              columns.forEach((column) => column.switchable = switchIds[item - 1]);
+
+            +row-label-input-text({ columns })
+      +fieldset-legend({ title: 'Primary contact' })
+        each columns in rows4
+          +row-label-input-text({ columns })

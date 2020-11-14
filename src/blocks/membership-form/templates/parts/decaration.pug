@@ -1,0 +1,19 @@
+mixin decaration()
+
+  -
+    const rows1 = [
+      [
+        { title: 'Name', modifiers: ['7', 'row-wrap'] },
+        { title: 'Date', modifiers: ['5', 'row-wrap'] },
+      ],
+    ];
+
+  +fieldset-legend({ title: 'Decaration', modifiers: ['headline'] })
+    p.membership-form__p.
+      I hereby apply to become a member of the HRIA Ltd. In the advent of my admission as a member I agree to be bound by the rules of the Association. I consent to receiving commercial messages by email from the HRIA Ltd.
+    each columns in rows1
+      +row-label-input-text({ columns })
+    p.membership-form__p.
+      We use the information in this form to provide you with membership services. We may give this information to our insurers, suppliers, members and related Associations. If you do not provide this information, we may not be able to provide you with a full range of services. We do not trade, rent or sell any information you supply. You can check the information we hold at any time. For more information, ask us for a copy of our privacy policy, or view it online at <a class='membership-form__a' href='www.hireandrental.com.au'>www.hireandrental.com.au</a>.
+    p.membership-form__p.
+      Your annual membership will be automatically rolled over. If you wish to resign from the association, please notify us in writing for the attention of James Oxenham (CEO), co - signed by the listed principal member.

@@ -1,0 +1,17 @@
+mixin row-input-checkbox-label({ columns, modifiers = [] })
+
+  -
+    const b = 'membership-form';
+    const rowClasses = [`${b}__row`].concat(modifiers.map((m) => `${b}__row_${m}`));
+
+  div(class=rowClasses)&attributes(attributes)
+    each column in columns
+
+      -
+        const { title, modifiers = [] } = column;
+        const columnClasses = [`${b}__column`].concat(modifiers.map((m) => `${b}__column_${m}`));
+        const id = getRandomId();
+
+      div(class=columnClasses)
+        +input-checkbox({ id, modifiers: ['with-margin-right'] })
+        +label-for-input-checkbox({ title, id })

@@ -1,0 +1,45 @@
+mixin membership-fee-options()
+
+  -
+    const id1 = getRandomId();
+    const switchId1 = getRandomId();
+
+    const rows1 = [
+      [{ title: '$0-6 million | $800' }],
+      [{ title: '$6-10 million | $1200' }],
+      [{ title: '$10-50 million | $2500' }],
+      [{ title: '$50+ million | $4200' }],
+    ];
+    const rows2 = [
+      [
+        { title: 'Supplier/Manufacturer/Service Provider | $850', modifiers: ['12', 'row-no-wrap'] },
+      ],
+      [
+        { title: 'EWPA Membership Offer – Available to Rental Companies who wish to belong to both Associations. Must have only one outlet | $150', modifiers: ['12', 'row-no-wrap'] },
+      ],
+    ];
+
+  +fieldset-legend({ title: 'Membership fee options', modifiers: ['headline'] })
+    p.membership-form__p.
+      Business type and annual turnover
+    .membership-form__row
+      .membership-form__column.membership-form__column_6
+        .membership-form__row
+          .membership-form__column.membership-form__column_12.membership-form__column_row-no-wrap
+            +input-checkbox({ id: id1, modifiers: ['with-margin-right'] })(data-switch=switchId1)
+            +label-for-input-checkbox({ title: 'Rental company', id: id1 })
+        each row in rows1
+
+          -
+            const { title } = row[0];
+            const id = getRandomId();
+
+          .membership-form__row
+            .membership-form__column.membership-form__column_12.membership-form__column_row-no-wrap
+              +input-checkbox({ id, modifiers: ['with-margin-right'] })(data-switchable=switchId1 disabled)
+              +label-for-input-checkbox({ title, id })
+        p.membership-form__p.
+          Note: New membership for a rental company is inclusive of 1 Free Delegate Registration for the next HRIA Convention, valued at $550 in 2019 – valid in current financial year only, conditions apply.
+      .membership-form__column.membership-form__column_6
+        each columns in rows2
+          +row-input-checkbox-label({ columns })

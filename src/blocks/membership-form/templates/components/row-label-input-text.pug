@@ -1,0 +1,17 @@
+mixin row-label-input-text({ columns, modifiers = [] })
+
+  -
+    const b = 'membership-form';
+    const rowClasses = [`${b}__row`].concat(modifiers.map((m) => `${b}__row_${m}`));
+
+  div(class=rowClasses)&attributes(attributes)
+    each column in columns
+
+      -
+        const { title, sameWidth, switchable, modifiers = [] } = column;
+        const columnClasses = [`${b}__column`].concat(modifiers.map((m) => `${b}__column_${m}`));
+        const id = getRandomId();
+
+      div(class=columnClasses)
+        +label-for-input-text({ title, id, modifiers: ['with-margin-right'] })(data-same-width=sameWidth)
+        +input-text({ id })(data-switchable=switchable)

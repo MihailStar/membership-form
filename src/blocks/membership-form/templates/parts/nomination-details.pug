@@ -1,0 +1,64 @@
+mixin nomination-details()
+
+  -
+    const ids = Array.from({ length: 7 }, getRandomId);
+    const switchIds = Array.from({ length: 2 }, getRandomId);
+    const sameWidthId1 = getRandomId();
+
+    const rows1 = [
+      [
+        { title: 'Nominated by', sameWidth: sameWidthId1, modifiers: ['7', 'row-wrap'] },
+        { title: 'Mobile', modifiers: ['5', 'row-wrap'] },
+      ],
+      [
+        { title: 'Company', sameWidth: sameWidthId1, modifiers: ['12', 'row-wrap'] },
+      ],
+      [
+        { title: 'Seconded by', sameWidth: sameWidthId1, modifiers: ['7', 'row-wrap'] },
+        { title: 'Mobile', modifiers: ['5', 'row-wrap'] },
+      ],
+      [
+        { title: 'Company', sameWidth: sameWidthId1, modifiers: ['12', 'row-wrap'] },
+      ],
+    ];
+    const rows2 = [
+      [
+        { title: 'Please tick if you are unable to provide someone to Nominate/Second your application, it will be forwarded to the State President', modifiers: ['12', 'row-no-wrap'] },
+      ],
+    ];
+
+  +fieldset-legend({ title: 'Nomination details', modifiers: ['headline'] })
+    p.membership-form__p.
+      A membership application can be nominated and seconded by any HRIA member company. Nominations are then approved by the State President/Committee and ratified at the next Board of Directors Meeting.
+    each columns in rows1
+      +row-label-input-text({ columns })
+    each columns in rows2
+      +row-input-checkbox-label({ columns })
+    p.membership-form__p.
+      Where did you hear about the Hire and Rental Industry Association?
+    .membership-form__row
+      .membership-form__column.membership-form__column_12.membership-form__column_row-wrap
+        .membership-form__wrapper
+          +input-checkbox({ id: ids[0], modifiers: ['with-margin-right'] })
+          +label-for-input-checkbox({ title: 'Internet', id: ids[0] })
+        .membership-form__wrapper
+          +input-checkbox({ id: ids[1], modifiers: ['with-margin-right'] })
+          +label-for-input-checkbox({ title: 'Hire and Rental News Magazine', id: ids[1] })
+        .membership-form__wrapper
+          +input-checkbox({ id: ids[2], modifiers: ['with-margin-right'] })
+          +label-for-input-checkbox({ title: 'Word of Mouth', id: ids[2] })
+        .membership-form__wrapper
+          +input-checkbox({ id: ids[3], modifiers: ['with-margin-right'] })(data-switch=switchIds[0])
+          +label-for-input-checkbox({ title: 'Other ', id: ids[3], modifiers: ['with-margin-right'] })
+          +input-text({})(data-switchable=switchIds[0] disabled)
+    .membership-form__row
+      .membership-form__column.membership-form__column_12.membership-form__column_row-wrap
+        .membership-form__wrapper
+          +input-checkbox({ id: ids[4], modifiers: ['with-margin-right'] })(data-switch=switchIds[1])
+          +label-for-input-checkbox({ title: 'Referred by HRIA Member', id: ids[4] })
+        .membership-form__wrapper
+          +label-for-input-text({ title: 'Name', id: ids[5], modifiers: ['with-margin-right', 'with-padding-top'] })
+          +input-text({ id: ids[5] })(data-switchable=switchIds[1] disabled)
+        .membership-form__wrapper
+          +label-for-input-text({ title: 'Company', id: ids[6], modifiers: ['with-margin-right', 'with-padding-top'] })
+          +input-text({ id: ids[6] })(data-switchable=switchIds[1] disabled)

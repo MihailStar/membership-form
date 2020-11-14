@@ -1,0 +1,26 @@
+mixin additional-contacts()
+
+  -
+    const items = Array.from({ length: 8 }, (_, i) => i + 1);
+    const sameWidthIds = Array.from({ length: 2 }, getRandomId);
+
+    const rows1 = [
+      [
+        { title: 'First name', sameWidth: sameWidthIds[0], modifiers: ['6', 'row-wrap'] },
+        { title: 'Surname', sameWidth: sameWidthIds[1], modifiers: ['6', 'row-wrap'] },
+      ],
+      [
+        { title: 'Location', sameWidth: sameWidthIds[0], modifiers: ['6', 'row-wrap'] },
+        { title: 'Position', sameWidth: sameWidthIds[1], modifiers: ['6', 'row-wrap'] },
+      ],
+      [
+        { title: 'Mobile', sameWidth: sameWidthIds[0], modifiers: ['6', 'row-wrap'] },
+        { title: 'Email', sameWidth: sameWidthIds[1], modifiers: ['6', 'row-wrap'] },
+      ],
+    ];
+
+  +fieldset-legend({ title: 'Additional contacts', modifiers: ['headline'] })
+    each item in items
+      +fieldset-legend({ title: `Additional contact ${item}` })
+        each columns in rows1
+          +row-label-input-text({ columns })

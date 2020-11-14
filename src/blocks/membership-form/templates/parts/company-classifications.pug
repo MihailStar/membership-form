@@ -1,0 +1,76 @@
+mixin company-classifications()
+
+  -
+    const rows1 = [
+      [
+        { title: 'Rental', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Manufacturer', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Owner/End user', modifiers: ['4', 'row-no-wrap'] },
+      ],
+      [
+        { title: 'Supplier', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Service provider', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Trainer', modifiers: ['4', 'row-no-wrap'] },
+      ],
+    ];
+    const rows2 = [
+      [
+        { title: 'Access/Materials handling', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Furniture', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Support services/IT', modifiers: ['4', 'row-no-wrap'] },
+      ],
+      [
+        { title: 'Construction', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'General plant/Handyman', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Training', modifiers: ['4', 'row-no-wrap'] },
+      ],
+      [
+        { title: 'Earth moving/Roads', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Office equipment/Audio', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Vehicles/Trailers', modifiers: ['4', 'row-no-wrap'] },
+      ],
+      [
+        { title: 'Events', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Site accomodation/Portable toilets', modifiers: ['4', 'row-no-wrap'] },
+      ],
+    ];
+    const rows3 = [
+      [
+        { title: 'Design/Engineering', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Repairs - EWP', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Yellow card training', modifiers: ['4', 'row-no-wrap'] },
+      ],
+      [
+        { title: 'Annual inspections - EWP', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Repairs - TSH', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Gold card training', modifiers: ['4', 'row-no-wrap'] },
+      ],
+      [
+        { title: 'Annual inspections - TSH', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Spare parts', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'High risk training', modifiers: ['4', 'row-no-wrap'] },
+      ],
+      [
+        { title: 'Major inspections - EWP', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Mobile service', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Reg inspector - EWP', modifiers: ['4', 'row-no-wrap'] },
+      ],
+      [
+        { title: 'Major inspections - TSH', modifiers: ['4', 'row-no-wrap'] },
+        { title: '3 Month service', modifiers: ['4', 'row-no-wrap'] },
+        { title: 'Reg inspector - TSH', modifiers: ['4', 'row-no-wrap'] },
+      ],
+    ];
+
+  +fieldset-legend({ title: 'Company Classifications', modifiers: ['headline'] })
+    p.membership-form__p.
+      Please select the categories your company represents:
+    +fieldset-legend({ title: 'Category' })
+      each columns in rows1
+        +row-input-checkbox-label({ columns })
+    +fieldset-legend({ title: 'Industry' })
+      each columns in rows2
+        +row-input-checkbox-label({ columns })
+    +fieldset-legend({ title: 'Services' })
+      each columns in rows3
+        +row-input-checkbox-label({ columns })
